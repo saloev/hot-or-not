@@ -2,7 +2,9 @@
   <div class="main-layout">
     <MainHeader class="main-layout__header" />
     <main class="main-layout__content">
-      <router-view />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </main>
     <MainFooter class="main-layout__footer" />
   </div>
@@ -20,9 +22,10 @@ export default {
 </script>
 <style lang="scss">
 .main-layout {
-  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   display: grid;
-  grid-template-rows: 80px auto 80px;
+  grid-template-rows: 80px calc(100vh - 2 * 80px) 80px;
 
   &__header,
   &__footer {
@@ -32,6 +35,10 @@ export default {
     text-align: center;
     color: $white;
     box-shadow: 0 0 3px $error;
+  }
+
+  &__content {
+    overflow: auto;
   }
 }
 </style>

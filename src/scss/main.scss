@@ -1,3 +1,8 @@
 @import "./include";
 @import "./global";
 @import "./common";
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
