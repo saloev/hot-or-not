@@ -19,6 +19,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    "no-space": {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -28,6 +32,7 @@ export default {
         "base-container--flex": this.isFlex,
         "base-container--justify-center": this.justifyCenter,
         "base-container--align-center": this.alignCenter,
+        "base-container--no-space": this.noSpace,
       };
     },
   },
@@ -37,6 +42,7 @@ export default {
 .base-container {
   max-width: $container-max-width;
   margin: 0 auto;
+  padding: 0 $default-block-space;
 
   &--flex {
     display: flex;
@@ -48,6 +54,10 @@ export default {
 
   &--align-center {
     align-items: center;
+  }
+
+  &--no-space {
+    padding: 0;
   }
 }
 </style>

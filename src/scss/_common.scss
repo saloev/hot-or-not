@@ -1,3 +1,6 @@
+/**
+ * Reset default styles with this classes
+ */
 .reset {
   &--list-style {
     margin: 0;
@@ -7,6 +10,9 @@
   }
 }
 
+/**
+ * Hide element but make it accesible
+ */
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -17,6 +23,9 @@
   width: 1px;
 }
 
+/**
+ * Vue transition
+ */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
