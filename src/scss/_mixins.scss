@@ -1,0 +1,47 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function calcSize($f-min, $f-max, $w-min, $w-max, $units: px) {
+  $f-min: strip-unit($f-min);
+  $f-max: strip-unit($f-max);
+  $w-min: strip-unit($w-min);
+  $w-max: strip-unit($w-max);
+
+  $k: ($f-max - $f-min)/($w-max - $w-min);
+  $b: $f-min - $k * $w-min;
+
+  $b: $b + $units;
+
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+
+@mixin fluidSize($prop, $f-min, $f-max, $w-min: 320px, $w-max: 1110px, $fallback: false) {
+
+  #{$prop}: $f-min;
+
+  @media (min-width: $w-min) {
+      @if ($fallback) {
+          #{$prop}: $fallback;
+      }
+      #{$prop}: calcSize($f-min, $f-max, $w-min, $w-max, px);
+  }
+  @media (min-width: $w-max) {
+      #{$prop}: $f-max;
+  }
+}
+
+@mixin media($prop) {
+  @media #{map-get($display-breakpoints, $prop)} {
+    @content;
+  }
+}
+
+
+@mixin transition($prop: opacity, $delay: 0.2s, $func: ease-in-out) {
+  transition: $prop $delay $func;
+}

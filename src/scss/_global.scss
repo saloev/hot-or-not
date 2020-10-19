@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+
+  font-family: $font-family-base;
+  font-size: $font-size-default;
+  color: $black;
+}
+
+input,
+button {
+  font-family: inherit;
+}

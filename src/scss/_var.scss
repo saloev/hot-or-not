@@ -1,0 +1,68 @@
+/**
+ * Fonts
+ */
+$font-family-base: Avenir, Helvetica, Arial, sans-serif;
+$font-size-default: 1rem;
+
+$btn-font-size: (
+  "default": 14px,
+  "small": 12px,
+);
+
+$btn-line-height: (
+  "default": 24px,
+  "small": 20px,
+);
+
+$link-font-size: (
+  "default": 12px,
+  "small": 10px,
+);
+
+$link-line-height: (
+  "default": 20px,
+  "small": 15px,
+);
+
+/**
+ * Colors
+ */
+$primary:#A85016;
+$secondary: #FAFBFC;
+$accent: #ECEFF1;
+$success: #00b844;
+$info: #708598;
+$error: #E92F2F;
+$warning: #FED83D;
+$white: #fff;
+$black: #050F19;
+
+/**
+ * Breakpoints
+ */
+ $grid-breakpoints:(
+  'xs': 0,
+  'sm': 620px,
+  'md': 720px,
+  'lg': 1024px,
+  'xl': 1280px
+);
+
+$display-breakpoints:
+  (
+    'print-only': 'only print',
+    'screen-only': 'only screen',
+    'xs-only': 'only screen and (max-width: #{map-get($grid-breakpoints, 'sm') - 1})',
+    'sm-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'sm')}) and (max-width: #{map-get($grid-breakpoints, 'md') - 1})',
+    'sm-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'md') - 1})',
+    'sm-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'sm')})',
+    'md-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'md')}) and (max-width: #{map-get($grid-breakpoints, 'lg') - 1})',
+    'md-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'lg') - 1})',
+    'md-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'md')})',
+    'lg-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'lg')}) and (max-width: #{map-get($grid-breakpoints, 'xl') - 1})',
+    'lg-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'xl') - 1})',
+    'lg-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'lg')})',
+    'xl-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'xl')})'
+  );
+
+$container-max-width: 1150px;
