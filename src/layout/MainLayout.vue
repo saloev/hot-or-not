@@ -22,25 +22,16 @@ export default {
 .main-layout {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 80px auto 80px;
-  // grid-template-areas:
-  //   "header"
-  //   "main"
-  //   "main"
-  //   "main"
-  //   "footer";
 
-  // &__header {
-  //   grid-area: header;
-  // }
+  &__header,
+  &__footer {
+    display: flex;
+    align-items: center;
 
-  // &__content {
-  //   grid-area: main;
-  // }
-
-  // &__footer {
-  //   grid-area: footer;
-  // }
+    text-align: center;
+    color: $white;
+    box-shadow: 0 0 3px $error;
+  }
 }
 </style>
