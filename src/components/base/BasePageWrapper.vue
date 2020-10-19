@@ -21,10 +21,10 @@ export default {
     background: {
       type: String,
     },
-    "justify": {
+    justify: {
       type: String,
     },
-    "align": {
+    align: {
       type: String,
     },
 
