@@ -1,6 +1,6 @@
 <template>
   <article class="base-page-wrapper" :style="setCSSVars">
-    <BaseContainer no-space>
+    <BaseContainer no-space class="base-page-wrapper__container">
       <h1 :class="titleClasses" v-if="String"> {{ title }}</h1>
       <section class="base-page-wrapper__section">
         <slot />
@@ -19,6 +19,12 @@ export default {
       type: String,
     },
     background: {
+      type: String,
+    },
+    "justify": {
+      type: String,
+    },
+    "align": {
       type: String,
     },
 
@@ -62,6 +68,8 @@ export default {
         "--content-space": this.contentSpace,
         "--wrapper-space": this.wrapperSpace,
         "--background": this.background,
+        "--justify": this.justify,
+        "--align": this.align,
       };
     },
   },
@@ -70,9 +78,17 @@ export default {
 <style lang="scss">
 .base-page-wrapper {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--justify, center);
+  align-items: var(--align, center);
   padding: var(--wraper-space, $default-block-space);
 
-  background: val(--background, $accent);
+  background: var(--background, $accent);
+
+  &__container {
+    width: 100%;
+  }
 
   &__title {
     margin: 0;

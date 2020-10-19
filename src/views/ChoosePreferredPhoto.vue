@@ -2,7 +2,7 @@
   <BasePageWrapper
     title="What type of photo you preferred ?"
     title-align="center"
-    content-space="60px 0 0 0">
+    content-space="30px 0 0 0">
    <CardTypeList />
   </BasePageWrapper>
 </template>
