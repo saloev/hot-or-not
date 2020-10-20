@@ -26,8 +26,11 @@ const routes = [
         path: "/photos/:gender",
         name: "photos",
         component: Photos,
-        meth: {
+        meta: {
           action: "fetchPhotoList",
+          params: {
+            page: 1,
+          },
         },
       },
       {
@@ -50,7 +53,8 @@ router.beforeEach((to, from, next) => {
   if (!actionName) {
     next();
   } else {
-    store.dispatch(actionName, { gender: to.params.gender, page: 1 }).then(() => {
+    const params = to.meta.params || {};
+    store.dispatch(actionName, { ...params, ...to.params }).then(() => {
       next();
     });
   }

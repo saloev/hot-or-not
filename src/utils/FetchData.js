@@ -23,9 +23,10 @@ export default {
     const url = `https://ipinfo.io/json?token=${API_LOCATION_KEY}`;
     return fetchDataAsync(url);
   },
-  photos(currnetLocation, gender, page) {
-    const query = `${gender},${currnetLocation}`;
-    const url = `https://api.unsplash.com/photos?page=${page}per_page=${PHOTOS_PER_PAGE}&order_by${PHOTOS_ORDER_BY}&query=${query}&client_id=${API_ACCESS_KEY_UNSPLASH}`;
+  photos(gender, page) {
+    // TODO add location to query
+    const query = `${gender}`;
+    const url = `https://api.unsplash.com/search/photos?page=${page}&per_page=${PHOTOS_PER_PAGE}&order_by=${PHOTOS_ORDER_BY}&query=${query}&client_id=${API_ACCESS_KEY_UNSPLASH}`;
     return fetchDataAsync(url);
   },
 };

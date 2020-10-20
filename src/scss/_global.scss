@@ -10,6 +10,8 @@ html {
 
 body {
   margin: 0;
+  max-height: 100vh;
+  overflow: hidden;
 
   font-family: $font-family-base;
   font-size: $font-size-default;
@@ -19,4 +21,10 @@ body {
 input,
 button {
   font-family: inherit;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
 }

@@ -22,11 +22,11 @@ export default {
         return [
           {
             id: 1,
-            gender: "male",
+            gender: "man",
           },
           {
             id: 2,
-            gender: "female",
+            gender: "woman",
           },
         ];
       },

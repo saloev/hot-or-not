@@ -21,6 +21,9 @@ export default {
     background: {
       type: String,
     },
+    display: {
+      type: String,
+    },
     justify: {
       type: String,
     },
@@ -70,6 +73,7 @@ export default {
         "--background": this.background,
         "--justify": this.justify,
         "--align": this.align,
+        "--display": this.display,
       };
     },
   },
@@ -77,8 +81,8 @@ export default {
 </script>
 <style lang="scss">
 .base-page-wrapper {
-  height: 100%;
-  display: flex;
+  min-height: 100%;
+  display: var(--display, flex);
   flex-direction: column;
   justify-content: var(--justify, center);
   align-items: var(--align, center);

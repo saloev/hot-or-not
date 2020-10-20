@@ -15,7 +15,7 @@ export default {
       type: String,
       default: "male",
       validator(value) {
-        return value === "male" || value === "female";
+        return value === "man" || value === "woman";
       },
     },
   },
