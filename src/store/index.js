@@ -10,8 +10,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    photoList: [
-    ],
+    photoList: [],
   },
   getters: {
     photoList(state) {
@@ -32,7 +31,7 @@ export default new Vuex.Store({
   actions: {
     async fetchPhotoList({ commit, state }, { gender, page, clearPrevious }) {
       const setNewPhotos = (photos) => {
-        const newPhotos = clearPrevious ? photos : [...state.photoList, ...photos];
+        const newPhotos = clearPrevious ? photos : [...state.photoList, images];
         commit("setState", { key: "photoList", value: newPhotos });
       };
 
@@ -43,9 +42,8 @@ export default new Vuex.Store({
       } catch (e) {
         console.error(e);
 
-        const savedImages = JSON.parse(images);
-        setNewPhotos(savedImages);
-        return savedImages;
+        setNewPhotos(images);
+        return images;
       }
     },
   },
