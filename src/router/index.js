@@ -30,6 +30,7 @@ const routes = [
           action: "fetchPhotoList",
           params: {
             page: 1,
+            clearPrevious: true,
           },
         },
       },

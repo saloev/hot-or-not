@@ -30,9 +30,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async fetchPhotoList({ commit, state }, { gender, page }) {
+    async fetchPhotoList({ commit, state }, { gender, page, clearPrevious }) {
       const setNewPhotos = (photos) => {
-        const newPhotos = [...state.photoList, ...photos];
+        const newPhotos = clearPrevious ? photos : [...state.photoList, ...photos];
         commit("setState", { key: "photoList", value: newPhotos });
       };
 
