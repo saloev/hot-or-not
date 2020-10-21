@@ -28,8 +28,8 @@ export default {
     /* eslint camelcase: "off" */
     normalizeList() {
       return this.photoList.map(
-        ({ id, urls: { regular }, alt_description }) => ({
-          id, src: regular, alt: alt_description,
+        ({ id, urls: { raw }, alt_description }) => ({
+          id, src: raw, alt: alt_description,
         }),
       );
     },

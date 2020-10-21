@@ -1,6 +1,8 @@
 <template>
   <div class="photo-list__item photo-item">
-    <img :src="image.src" :alt="image.alt" :data-id="image.id" class="photo-item__img" />
+    <img :src="`${image.src}&auto=format&w=1024&h=952&q=70`"
+      :alt="image.alt"
+      class="photo-item__img" />
   </div>
 </template>
 
