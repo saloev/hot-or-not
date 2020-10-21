@@ -1,0 +1,1 @@
+.gender-card{min-width:100px;min-height:100px;border:2px dashed #ff7059;transition:background-color .2s linear,border-color .2s linear}.gender-card,.gender-card__image{display:block}.gender-card:focus,.gender-card:hover{background:#ff7059;border-color:#e92f2f}.card-list{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:20px}
