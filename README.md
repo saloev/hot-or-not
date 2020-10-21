@@ -1,5 +1,5 @@
 # hot-or-not
-[Tinder](https://tinder.com/) like SPA mobile web-app
+[Tinder](https://tinder.com/) like SPA mobile web-app - [demo](https://saloev.github.io/hot-or-not/)
 
 ## Stack
 ### Tools and Frameworks
