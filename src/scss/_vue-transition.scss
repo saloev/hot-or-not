@@ -1,0 +1,27 @@
+/**
+ * Vue transition
+ */
+ .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.rotate-left-leave-active {
+  animation: rotate 1s reverse;
+}
+
+.rotate-right-leave-active {
+  animation: rotateRight 1s reverse;
+}
+
+@keyframes rotate {
+  0% { opacity: 0; transform: translate(-100%, 0) rotate(-45deg); }
+  100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes rotateRight {
+  0% { opacity: 0; transform: translate(100%, 0) rotate(45deg); }
+  100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+}

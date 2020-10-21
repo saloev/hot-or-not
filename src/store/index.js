@@ -14,13 +14,7 @@ export default new Vuex.Store({
   },
   getters: {
     photoList(state) {
-      /* disable camelcase cause alt description is API property and we can't change it   */
-      /* eslint camelcase: "off" */
-      return state.photoList.map(
-        ({ id, urls: { regular }, alt_description }) => ({
-          id, src: regular, alt: alt_description,
-        }),
-      );
+      return state.photoList;
     },
   },
   mutations: {
@@ -31,7 +25,7 @@ export default new Vuex.Store({
   actions: {
     async fetchPhotoList({ commit, state }, { gender, page, clearPrevious }) {
       const setNewPhotos = (photos) => {
-        const newPhotos = clearPrevious ? photos : [...state.photoList, images];
+        const newPhotos = clearPrevious ? photos : [...state.photoList, ...photos];
         commit("setState", { key: "photoList", value: newPhotos });
       };
 

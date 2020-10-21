@@ -25,7 +25,11 @@ export default {
   max-height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 80px calc(100vh - 2 * 80px) 80px;
+  grid-template-rows: 40px calc(100vh - 2 * 40px) 40px;
+
+  @include media('sm-and-up') {
+    grid-template-rows: 80px calc(100vh - 2 * 80px) 80px;
+  }
 
   &__header,
   &__footer {
@@ -38,7 +42,7 @@ export default {
   }
 
   &__content {
-    overflow: auto;
+    overflow: hidden;
   }
 }
 </style>

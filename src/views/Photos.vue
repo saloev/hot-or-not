@@ -1,7 +1,7 @@
 <template>
-  <BasePageWrapper title="Like Or Dislike photos"
-    title-align="center" content-space="30px 0 0 0" display="block">
-    <PhotoList :list="photoList" />
+  <BasePageWrapper
+    title-align="center" content-space="" display="block">
+    <PhotoList :images="normalizeList" @remove-first="removeFirstPhoto"/>
   </BasePageWrapper>
 </template>
 <script>
@@ -12,11 +12,6 @@ import PhotoList from "@/components/pages/PhotosList.vue";
 /**
  * Not using in data because we don't need reactivity
  */
-const SCROLL_DELAY = 100;
-
-let settimeouteId = null;
-let locked = false;
-let mainWrapper = null;
 let currentPage = 1;
 
 export default {
@@ -28,37 +23,36 @@ export default {
 
   computed: {
     ...mapGetters(["photoList"]),
+
+    /* disable camelcase cause alt description is API property and we can't change it   */
+    /* eslint camelcase: "off" */
+    normalizeList() {
+      return this.photoList.map(
+        ({ id, urls: { regular }, alt_description }) => ({
+          id, src: regular, alt: alt_description,
+        }),
+      );
+    },
   },
 
   methods: {
     loadMore() {
+      if (this.photoList.length > 2) return new Promise((resolve) => resolve("not need to load new data"));
+
       currentPage += 1;
-      this.$store.dispatch("fetchPhotoList", { gender: this.$route.params.gender, page: currentPage });
+      return this.$store.dispatch("fetchPhotoList", { gender: this.$route.params.gender, page: currentPage });
     },
-    onScroll() {
-      if (locked) return;
-
-      if (settimeouteId) clearTimeout(settimeouteId);
-      settimeouteId = setTimeout(() => {
-        const isEndOfScroll = (
-          mainWrapper.offsetHeight + mainWrapper.scrollTop >= mainWrapper.scrollHeight
-        );
-        if (isEndOfScroll) this.loadMore();
-        locked = false;
-      }, SCROLL_DELAY);
-
-      locked = true;
+    removeFirstPhoto() {
+      this.loadMore().then(() => {
+        this.$store.commit("setState", { key: "photoList", value: this.photoList.slice(1) });
+      }).catch((e) => {
+        console.error(e);
+      });
     },
+
   },
 
   mounted() {
-    mainWrapper = document.querySelector(".main-layout__content");
-    this.onScroll();
-    mainWrapper.addEventListener("scroll", this.onScroll);
-  },
-
-  destroyed() {
-    mainWrapper.removeEventListener("scroll", this.onScroll);
   },
 };
 </script>
