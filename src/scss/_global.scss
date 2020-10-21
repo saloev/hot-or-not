@@ -6,6 +6,12 @@ html {
 *::after,
 *::before {
   box-sizing: inherit;
+
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;  /* Firefox */
 }
 
 body {

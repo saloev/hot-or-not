@@ -77,6 +77,7 @@ export default {
   position: relative;
 
   &-board {
+    min-height: 350px;
     height: calc(100vh - 140px);
 
     @include media("sm-and-up") {

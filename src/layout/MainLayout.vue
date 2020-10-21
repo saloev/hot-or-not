@@ -42,7 +42,8 @@ export default {
   }
 
   &__content {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 </style>
